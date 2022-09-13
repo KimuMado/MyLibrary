@@ -25,10 +25,10 @@
                 <span asp-validation-for="Book.Subtitle" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Book.BookAuthors" class="control-label"></label>
+                <label asp-for="Book.Author" class="control-label"></label>
                 <input type="text" list="authorlist" class="form-control" />
                 <datalist id="authorlist">
-                    <select asp-for="Book.BookAuthors" class="form-control" asp-items="ViewBag.AuthorList"></select>
+                    <select asp-for="Book.Author" class="form-control" asp-items="ViewBag.AuthorList"></select>
                 </datalist>
                 <span asp-validation-for="Book.PublisherId" class="text-danger"></span>
             </div>
