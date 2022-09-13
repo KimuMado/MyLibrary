@@ -21,7 +21,8 @@ namespace MyLibraryRazor.Pages
 
         public IActionResult OnGet()
         {
-        ViewData["PublisherId"] = new SelectList(_context.Publisher, "PublisherId", "Label");
+            ViewData["AuthorList"] = new SelectList(_context.Author, "AuthorId", "Name");
+            ViewData["PublisherId"] = new SelectList(_context.Publisher, "PublisherId", "Label");
             return Page();
         }
 

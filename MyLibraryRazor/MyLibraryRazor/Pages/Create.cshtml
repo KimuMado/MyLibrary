@@ -24,23 +24,35 @@
                 <span asp-validation-for="Book.Subtitle" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Book.BookAuthors" class="control-label"></label>
+                <input type="text" list="authorlist" class="form-control" />
+                <datalist id="authorlist">
+                    <select asp-for="Book.BookAuthors" class="form-control" asp-items="ViewBag.AuthorList">
+                    </select>
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.PublisherId" class="control-label"></label>
+                <input type="text" list="publist" class="form-control" />
+                <datalist id="publist">
+                    <select asp-for="Book.PublisherId" class="form-control" asp-items="ViewBag.PublisherId">
+                    </select>
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.PublishDate" class="control-label"></label>
+                <input type="month" asp-for="Book.PublishDate" class="form-control" />
+                <span asp-validation-for="Book.PublishDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Book.LeadSentence" class="control-label"></label>
                 <input asp-for="Book.LeadSentence" class="form-control" />
                 <span asp-validation-for="Book.LeadSentence" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Book.PublishDate" class="control-label"></label>
-                <input asp-for="Book.PublishDate" class="form-control" />
-                <span asp-validation-for="Book.PublishDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Book.ImageUrl" class="control-label"></label>
                 <input asp-for="Book.ImageUrl" class="form-control" />
                 <span asp-validation-for="Book.ImageUrl" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Book.PublisherId" class="control-label"></label>
-                <select asp-for="Book.PublisherId" class ="form-control" asp-items="ViewBag.PublisherId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

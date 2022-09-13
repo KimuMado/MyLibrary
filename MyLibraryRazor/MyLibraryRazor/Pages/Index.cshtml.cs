@@ -24,7 +24,6 @@ namespace MyLibraryRazor.Pages
         public async Task OnGetAsync()
         {
             Book = await _context.Book
-                .Include(b => b.Authors)
                 .Include(b => b.Publisher).ToListAsync();
         }
     }
