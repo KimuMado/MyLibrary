@@ -8,6 +8,34 @@
 <h1>Create</h1>
 
 <h4>Book</h4>
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">著者</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                著者を選択または新規登録<br />
+                <label asp-for="@Model.CurrentBookAuthor.Author.Name" class="sontrol-label"></label>
+                <input asp-for="@Model.CurrentBookAuthor.Author.Name" list="authorlist" class="form-control" />
+                <datalist id="authorlist">
+                    <select asp-for="@Model.CurrentBookAuthor.Author.Name" class="form-control" asp-items="ViewBag.AuthorList">
+                    </select>
+                </datalist>
+                <label asp-for="@Model.CurrentBookAuthor.Author.SortName" class="sontrol-label"></label>
+                <input asp-for="@Model.CurrentBookAuthor.Author.SortName" class="form-control" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                <button type="button" class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -25,33 +53,34 @@
             </div>
             <div class="form-group">
                 <label asp-for="Book.BookAuthors" class="control-label"></label>
-                <input type="text" list="authorlist" class="form-control" />
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">著者を設定</button>
+                <input asp-for="Book.BookAuthors" list="authorlist" class="form-control" />
                 <datalist id="authorlist">
                     <select asp-for="Book.BookAuthors" class="form-control" asp-items="ViewBag.AuthorList">
                     </select>
                 </datalist>
             </div>
             <div class="form-group">
-                <label asp-for="Book.PublisherId" class="control-label"></label>
+                <label asp-for="Book.Publisher" class="control-label"></label>
                 <input type="text" list="publist" class="form-control" />
                 <datalist id="publist">
-                    <select asp-for="Book.PublisherId" class="form-control" asp-items="ViewBag.PublisherId">
+                    <select asp-for="Book.Publisher" class="form-control" asp-items="ViewBag.Publisher">
                     </select>
                 </datalist>
             </div>
             <div class="form-group">
                 <label asp-for="Book.PublishDate" class="control-label"></label>
                 <input type="month" asp-for="Book.PublishDate" class="form-control" />
-                <span asp-validation-for="Book.PublishDate" class="text-danger"></span>
+                <span asp-validation-for="Book.Publisher" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Book.LeadSentence" class="control-label"></label>
+                <label asp-for="Book.PublisherId" class="control-label"></label>
                 <input asp-for="Book.LeadSentence" class="form-control" />
                 <span asp-validation-for="Book.LeadSentence" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Book.ImageUrl" class="control-label"></label>
-                <input asp-for="Book.ImageUrl" class="form-control" />
+                <input asp-for="Book.PublishDate" class="form-control" />
                 <span asp-validation-for="Book.ImageUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -60,7 +89,6 @@
         </form>
     </div>
 </div>
-
 <div>
     <a asp-page="Index">Back to List</a>
 </div>

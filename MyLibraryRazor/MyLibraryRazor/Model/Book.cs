@@ -27,13 +27,13 @@ namespace MyLibraryRazor.Model
         [Display(Name = "カバー画像のURL")]
         public string ImageUrl { get; set; }
 
-        //著者・訳者・編者（複数の場合あり）
-        [Display(Name="著者・訳者・編者")]
-        public List<BookAuthor> BookAuthors { get; set; }
+        //著者・訳者・編者（一人のみ対応）
+        [Display(Name="著者")]
+        public Author Author { get; set; }
 
         //出版レーベル
-        [Display(Name="出版レーベル")]
         public int PublisherId { get; set; }
+        [Display(Name="出版レーベル")]
         public Publisher Publisher { get; set; }
     }
 
@@ -47,7 +47,9 @@ namespace MyLibraryRazor.Model
 
         [Display(Name="アルファベット表記（Family First）")]
         public string SortName { get; set; }
-        public List<BookAuthor> BookAuthors { get; set; }
+
+        //著書リスト
+        public ICollection<Book> Books { get; set; }
     }
 
     public class Publisher
@@ -60,19 +62,5 @@ namespace MyLibraryRazor.Model
         public string Company { get; set; }
 
         public ICollection<Book> Books { get; set; }
-    }
-
-    //多対多リレーションのための結合エンティティ
-    public class BookAuthor
-    {
-        public DateTime PublicationDate { get; set; }
-
-        public int BookId { get; set; }
-
-        public Book Book { get; set; }
-
-        public int AuthorId { get; set; }
-
-        public Author Author { get; set; }
     }
 }

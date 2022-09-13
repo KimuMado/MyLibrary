@@ -24,10 +24,16 @@
             @Html.DisplayFor(model => model.Book.Subtitle)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Book.LeadSentence)
+            @Html.DisplayNameFor(model => model.Book.BookAuthors)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Book.LeadSentence)
+            @Html.DisplayFor(model => model.Book.BookAuthors)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.Publisher)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.Publisher.Label)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Book.PublishDate)
@@ -36,16 +42,16 @@
             @Html.DisplayFor(model => model.Book.PublishDate)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.LeadSentence)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.LeadSentence)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Book.ImageUrl)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Book.ImageUrl)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Book.Publisher)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Book.Publisher.PublisherId)
         </dd>
     </dl>
 </div>

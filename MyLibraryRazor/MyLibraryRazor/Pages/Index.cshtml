@@ -20,16 +20,19 @@
                 @Html.DisplayNameFor(model => model.Book[0].Subtitle)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].LeadSentence)
+                @Html.DisplayNameFor(model => model.Book[0].BookAuthors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].Publisher)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].PublishDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].ImageUrl)
+                @Html.DisplayNameFor(model => model.Book[0].LeadSentence)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].Publisher)
+                @Html.DisplayNameFor(model => model.Book[0].ImageUrl)
             </th>
             <th></th>
         </tr>
@@ -44,16 +47,19 @@
                 @Html.DisplayFor(modelItem => item.Subtitle)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LeadSentence)
+                @Html.DisplayFor(modelItem => item.BookAuthors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher.Label)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PublishDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
+                @Html.DisplayFor(modelItem => item.LeadSentence)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Publisher.Label)
+                @Html.DisplayFor(modelItem => item.ImageUrl)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.BookId">Edit</a> |

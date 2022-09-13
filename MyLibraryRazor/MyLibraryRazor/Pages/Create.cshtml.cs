@@ -22,12 +22,14 @@ namespace MyLibraryRazor.Pages
         public IActionResult OnGet()
         {
             ViewData["AuthorList"] = new SelectList(_context.Author, "AuthorId", "Name");
-            ViewData["PublisherId"] = new SelectList(_context.Publisher, "PublisherId", "Label");
+            ViewData["Publisher"] = new SelectList(_context.Publisher, "PublisherId", "Label");
             return Page();
         }
 
         [BindProperty]
         public Book Book { get; set; }
+
+        public IList<Author> Authors { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
