@@ -25,25 +25,29 @@
             </div>
             <div class="form-group">
                 <label asp-for="Book.Author" class="control-label"></label>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">著者を設定</button>
-                <input asp-for="Book.Author" list="authorlist" class="form-control" />
+                <input list="authorlist" class="form-control" />
                 <datalist id="authorlist">
-                    <select asp-for="Book.Author" class="form-control" asp-items="ViewBag.AuthorList">
+                    <select asp-for="Book.AuthorId" class="form-control" asp-items="ViewBag.AuthorList">
                     </select>
                 </datalist>
             </div>
             <div class="form-group">
                 <label asp-for="Book.Publisher" class="control-label"></label>
-                <input type="text" list="publist" class="form-control" />
-                <datalist id="publist">
-                    <select asp-for="Book.Publisher" class="form-control" asp-items="ViewBag.Publisher">
-                    </select>
-                </datalist>
+                <input asp-for="@Model.PublisherInputStr" class="form-control" oninput="OnInputPublisher()" placeholder="入力して絞り込み"/>
+                <a href="javascript:void(0)" onclick="$('#exampleModal').modal()">
+                    リストにない場合は新規追加
+                </a>
+                <select asp-for="Book.PublisherId" class="form-control" size="5">
+                    @foreach (var item in Model.Publishers)
+                    {
+                        <option value="@item.PublisherId" label="@item.Label"></option>
+                    }
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Book.PublishDate" class="control-label"></label>
                 <input type="month" asp-for="Book.PublishDate" class="form-control" />
-                <span asp-validation-for="Book.Publisher" class="text-danger"></span>
+                <span asp-validation-for="Book.PublishDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Book.LeadSentence" class="control-label"></label>
@@ -52,7 +56,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Book.ImageUrl" class="control-label"></label>
-                <input asp-for="Book.PublishDate" class="form-control" />
+                <input asp-for="Book.ImageUrl" class="form-control" />
                 <span asp-validation-for="Book.ImageUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -63,6 +67,30 @@
 </div>
 <div>
     <a asp-page="Index">Back to List</a>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-page="Publishers/create">
+                <div class="modal-body">
+                    <input asp-for="Publisher.Label" class="form-control" placeholder="レーベルを入力"/>
+                    <input asp-for="Publisher.Company" class="form-control" placeholder="出版社を入力" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                    <button type="submit" class="btn btn-primary" >出版レーベルを追加</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 @section Scripts {

@@ -28,6 +28,7 @@ namespace MyLibraryRazor.Model
         public string ImageUrl { get; set; }
 
         //著者・訳者・編者（一人のみ対応）
+        public int AuthorId { get; set; }
         [Display(Name="著者")]
         public Author Author { get; set; }
 
